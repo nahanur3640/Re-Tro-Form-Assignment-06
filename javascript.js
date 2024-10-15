@@ -1,4 +1,5 @@
 const titleDev = document.getElementById("titleDev");
+// const allEmail = document.getElementsByClassName()
 const allNews = async (category) => {
   const response = await fetch(
     `https://openapi.programming-hero.com/api/retro-forum/posts?category=${category}`
@@ -10,26 +11,27 @@ const allNews = async (category) => {
 
   data.posts.forEach((news) => {
     const div = document.createElement("div");
-      div.classList.add("singleNews");
-      
+    div.classList.add("singleNews");
     div.innerHTML = `
         <div id="singleNews" class="lg:flex mr-10 bg-[#2328b81a] opacity-10% p-5 rounded-3xl mb-5 gap-5 ml-10 md:ml-0 ">
         
     <div class="indicator">
-    <span class="indicator-item badge  ${news.isActive ? "bg-green-600" : "bg-red-600"
-      } border-none ">
+    <span class="indicator-item badge  ${
+      news.isActive ? "bg-green-600" : "bg-red-600"
+    } border-none ">
    
     </span> 
-    <div class="grid w-20 h-20  bg-base-300 place-items-center"><img class="rounded-xl" src="${news.image
-      }" alt=""></div>
+    <div class="grid w-20 h-20  bg-base-300 place-items-center"><img class="rounded-xl" src="${
+      news.image
+    }" alt=""></div>
     </div>
     <div class="">
     <div class="lg:flex gap-5">
         <h3># ${news.category}</h3>
-        <h3 class="mr-20">Author <span class="mr-2">:</span><span >${news.author.name
-      }</span></h3>
+        <h3 class="mr-20">Author <span class="mr-2">:</span><span >${
+          news.author.name
+        }</span></h3>
 
-      
     </div>
     <div>
         <h1 class="lg:text-xl font-bold mt-2 w-full">${news.title}</h1>
@@ -63,6 +65,7 @@ const allNews = async (category) => {
     </div>
     </div>
         `;
+    // newsContainer.appendChild(div);
     newsContainer.appendChild(div);
   });
 };
@@ -77,7 +80,7 @@ const allCard = async () => {
   const cardContainer = document.getElementById("card-container");
   data.forEach((card) => {
     const div = document.createElement("div");
-
+   
 
     div.setAttribute('news-title', card.title)
     div.setAttribute('id', `${card.id}`)
@@ -117,7 +120,7 @@ const allCard = async () => {
 };
 allCard();
 
-// handleSearch result
+// handle result
 
 const Search = () => {
   spinner(true);
@@ -151,17 +154,17 @@ const clickHandle = () => {
   markAsRedNumber.innerText = markValue;
 };
 
-const cardFunction = () => {
+const cardFunction = ()=>{
 
 }
 
 
-
+  
 
 const handleClick = (title, view) => {
   const titleShow = document.getElementById("titleShow");
   clickHandle();
-
+  
   const div = document.createElement("div");
   div.className =
     "flex bg-white p-5  rounded-2xl justify-between mb-2";
